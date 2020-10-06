@@ -1,11 +1,41 @@
+@import url('https://fonts.googleapis.com/css2?family=Raleway:wght@100;200;300;400;500;600;700;800;900&display=swap');
+
 * {
   margin: 0;
   padding: 0;
   box-sizing: border-box;
 }
 
+*:focus {
+  outline: none;
+  box-shadow: 0 0 2px 1px var(--main-color-2);
+}
+
+:root {
+  --main-bg-color:  #fafcfe;
+
+  --main-color-1: #fafcfe;
+  --main-color-2: #2980b9;
+
+  --font-size-large: 18px;
+  --font-size-medium: 15px;
+  --font-size-small: 13px;
+
+  --hover-transition-time: .1s;
+}
+
 body {
   min-width: 320px;
+  background-color: var(--main-bg-color);
+  font-family: 'Raleway', sans-serif;
+  font-size: var(--font-size-large);
+}
+
+p,
+a,
+button {
+  color: var(--main-color-1);
+  font-family: 'Raleway', sans-serif;
 }
 
 ul {
@@ -16,7 +46,35 @@ a {
   text-decoration: none;
 }
 
+::-webkit-scrollbar {
+  width: 10px;
+  background-color: var(--main-bg-color);
+}
+
+::-webkit-scrollbar-thumb {
+  background-color: var(--main-color-2);
+}
+
+.wrapper {
+  max-width: 1170px;
+  margin: 0 auto;
+  padding: 0 15px;
+}
+
 .btn {
   border: none;
   cursor: pointer;
+}
+
+.triangle-shape-1 {
+  &::after {
+    content: '';
+    width: 100%;
+    height: 200px;
+    position: absolute;
+    left: 0;
+    bottom: 0;
+    clip-path: polygon(0% 0%, 50% 100%, 100% 0%, 100% 100%, 0% 100%);
+    background-color: var(--main-bg-color);
+  }
 }

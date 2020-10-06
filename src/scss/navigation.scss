@@ -1,0 +1,257 @@
+@import 'partials/mixins';
+@import 'partials/media-queries';
+
+.nav {
+  display: flex;
+  justify-content: center;
+  
+  ul {
+    display: flex;
+    list-style-type: none;
+
+    @include media-lg {
+      display: none;
+    }
+
+    li {
+      a {
+        display: block;
+        height: 40px;
+        padding: 0 12px;
+        line-height: 40px;
+        text-decoration: none;
+        font-weight: 500;
+        @include transition(color var(--hover-transition-time) ease-in-out);
+
+        &:hover {
+          color: var(--main-color-2);
+        }
+
+        @include media-lg {
+          opacity: 0;
+        }
+      }
+    }
+  }
+
+  .btn-nav-toggle {
+    width: 30px;
+    height: 30px;
+    display: none;
+    position: fixed;
+    top: 35px;
+    right: 15px;
+    padding: 0;
+    border: none;
+    background-color: transparent;
+    cursor: pointer;
+    z-index: 999;
+
+    @include media-lg {
+      display: block;
+    }
+    
+    &:hover {
+      svg {
+        fill: var(--main-color-2);
+      }
+    }
+    
+    svg {
+      width: 100%;
+      height: 100%;
+      fill: var(--main-color-1);
+      @include transition(fill var(--hover-transition-time) ease-in-out);
+
+      rect {
+        &:nth-of-type(1) {
+          transform-origin: 50% 16%;
+        }
+
+        &:nth-of-type(2) {
+          transform-origin: 50% 50%;
+        }
+
+        &:nth-of-type(3) {
+          transform-origin: 50% 84%;
+        }
+      }
+    }
+
+    .btn-toggle-svg-open {
+      rect {
+        @for $i from 1 through 3 {
+          &:nth-of-type(#{$i}) {
+            @include animation(rect#{$i}-open .5s ease-in-out 1 forwards);
+          }
+        }
+      }
+    }
+
+    .btn-toggle-svg-close {
+      rect {
+        @for $i from 1 through 3 {
+          &:nth-of-type(#{$i}) {
+            @include animation(rect#{$i}-close .5s ease-in-out 1 forwards);
+          }
+        }
+      }
+    }
+  }
+}
+
+.nav-toggle {
+  width: 100%;
+  height: 100vh;
+  align-items: center;
+  position: fixed;
+  top: 0;
+  left: 0;
+  background-color: rgba(0, 0, 0, .8);
+  z-index: 999;
+
+  ul {
+    display: flex;
+    flex-direction: column;
+    justify-content: stretch;
+    align-items: center;
+    
+    li {
+      width: 100%;
+
+      a {
+        height: 30px;
+        margin: 5px 0;
+        text-align: center;
+        line-height: 30px;
+        @include animation(showLinks .3s ease-in-out 1 forwards);
+      }
+
+      @for $i from 2 through 12 {
+        &:nth-child(#{$i}) {
+          a {
+            animation-delay: #{$i/10}s;
+          }
+        }
+      }
+    }
+  }
+}
+
+.sticky-nav {
+  width: 100%;
+  height: 50px;
+  position: fixed;
+  top: 0;
+  left: 0;
+  padding: 0 15px;
+  background-color:rgba(41, 128, 185, .7);
+  z-index: 999;
+  @include animation(stickyNav .3s ease-in-out 1 forwards);
+}
+
+@include keyframes(showLinks) {
+  from {
+    opacity: 0;
+    @include transform(translateY(20%));
+  }
+
+  to {
+    opacity: 1;
+    @include transform(translateY(0));
+  }
+}
+
+@include keyframes(rect1-open) {
+  from {
+    @include transform(translateY(0) rotate(0));
+  }
+  
+  50% {
+    @include transform(translateY(34%) rotate(0));
+  }
+  
+  to {
+    @include transform(translateY(34%) rotate(45deg));
+  }
+}
+
+@include keyframes(rect2-open) {
+  from {
+    @include transform(rotate(0));
+  }
+  
+  50% {
+    @include transform(rotate(0));
+  }
+  
+  to {
+    @include transform(rotate(45deg));
+  }
+}
+
+@include keyframes(rect3-open) {
+  from {
+    @include transform(translateY(0) rotate(0));
+  }
+  
+  50% {
+    @include transform(translateY(-34%) rotate(0));
+  }
+  
+  to {
+    @include transform(translateY(-34%) rotate(-45deg));
+  }
+}
+
+@include keyframes(rect1-close) {
+  from {
+    @include transform(translateY(34%) rotate(45deg));
+  }
+  
+  50% {
+    @include transform(translateY(34%) rotate(0));
+  }
+  
+  to {
+    @include transform(translateY(0) rotate(0));
+  }
+}
+
+@include keyframes(rect2-close) {
+  from {
+    @include transform(rotate(45deg));
+  }
+  
+  50% {
+    @include transform(rotate(0));
+  }
+  
+  to {
+    @include transform(rotate(0));
+  }
+}
+
+@include keyframes(rect3-close) {
+  from {
+    @include transform(translateY(-34%) rotate(-45deg));
+  }
+  
+  50% {
+    @include transform(translateY(-34%) rotate(0));
+  }
+  
+  to {
+    @include transform(translateY(0) rotate(0));
+  }
+}
+
+@include keyframes(stickyNav) {
+  from {
+    top: -50px;
+  }
+
+  to {
+    top: 0;
+  }
+}

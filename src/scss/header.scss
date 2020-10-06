@@ -1,0 +1,81 @@
+@import 'partials/mixins';
+@import 'partials/media-queries';
+
+.header {
+  width: 100%;
+  height: 100vh;
+  background: linear-gradient(rgba(41, 128, 185, .5), rgba(41, 128, 185, .5)),
+              url('../img/header/header-bg.jpg') center/cover no-repeat;
+
+  .wrapper {
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    padding-top: 35px;
+    padding-bottom: 55px;
+  }
+
+  .nav-wrapper {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    align-self: stretch;
+    margin-bottom: auto;
+  }
+
+  .main-logo {
+    margin-bottom: 40px
+  }
+
+  .slogan {
+    max-width: 675px;
+    margin-bottom: 35px;
+    text-align: center;
+    font-weight: 500;
+  }
+
+  .btn-know-more {
+    width: 160px;
+    height: 40px;
+    border: 2px solid var(--main-color-1);
+    border-radius: 3px;
+    background-color: transparent;
+    line-height: 36px;
+    text-align: center;
+    font-size: var(--font-size-medium);
+    font-weight: 700;
+    @include transition(border-color var(--hover-transition-time) ease-in-out);
+
+    &:hover {
+      border-color: var(--main-color-2);
+    }
+  }
+
+  .btn-scroll-down {
+    position: relative;
+    margin-top: auto;
+    padding-top: 50px;
+    background-color: transparent;
+    text-transform: uppercase;
+    font-size: var(--font-size-medium);
+    font-weight: 500;
+    @include transition(color var(--hover-transition-time) ease-in-out);
+
+    &:hover {
+      color: var(--main-color-2);
+    }
+
+    &::before {
+      content: '';
+      width: 32px;
+      height: 40px;
+      position: absolute;
+      top: 0;
+      left: 50%;
+      background-image: url('../img/header/scroll-icon.png');
+      @include transform(translateX(-50%));
+    }
+  }
+}
