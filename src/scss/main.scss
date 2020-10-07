@@ -16,10 +16,14 @@
 
   --main-color-1: #fafcfe;
   --main-color-2: #2980b9;
+  --main-color-3: #616161;
 
   --font-size-large: 18px;
   --font-size-medium: 15px;
   --font-size-small: 13px;
+
+  --font-size-section-title: 25px;
+  --font-size-card-title: 20px;
 
   --hover-transition-time: .1s;
 }
@@ -59,6 +63,39 @@ a {
   max-width: 1170px;
   margin: 0 auto;
   padding: 0 15px;
+}
+
+.section-title {
+  position: relative;
+  text-align: center;
+  text-transform: uppercase;
+  font-size: var(--font-size-section-title);
+  font-weight: 700;
+
+  &::after {
+    content: '';
+    width: 30px;
+    height: 5px;
+    position: absolute;
+    left: calc(50% - 15px);
+    bottom: -15px;
+  }
+}
+
+.section-title-style-1 {
+  color: var(--main-color-1);
+
+  &::after {
+    background-color: var(--main-color-1);
+  }
+}
+
+.section-title-style-2 {
+  color: var(--main-color-2);
+
+  &::after {
+    background-color: var(--main-color-2);
+  }
 }
 
 .btn {

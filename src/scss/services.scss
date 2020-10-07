@@ -1,0 +1,72 @@
+@import 'partials/mixins';
+@import 'partials/media-queries';
+
+.services {
+  .wrapper {
+    padding-top: 60px;
+    padding-bottom: 30px;
+
+    .section-title {
+      margin-bottom: 80px;
+    }
+
+    .services-list {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: space-around;
+
+      @include media-md {
+        justify-content: space-between;
+      }
+
+      .service {
+        width: calc(100% / 12 * 2 - 30px);
+        position: relative;
+        padding-top: 75px;
+
+        @include media-xl {
+          width: calc(100% / 12 * 3 - 30px);
+        }
+
+        @include media-md {
+          width: calc(100% / 12 * 4 - 20px);
+        }
+
+        @include media-sm {
+          width: calc(100% / 12 * 8);
+          margin: 0 auto;
+
+          &:not(:last-child) {
+            margin-bottom: 30px;
+          }
+        }
+
+        @include media-xs {
+          width: 100%;
+        }
+
+        .icon {
+          position: absolute;
+          top: 0;
+          left: 50%;
+          @include transform(translateX(-50%));
+        }
+
+        .title {
+          margin-bottom: 20px;
+          color: var(--main-color-3);
+          text-align: center;
+          font-size: var(--font-size-card-title);
+          font-weight: 700;
+        }
+
+        .description {
+          color: var(--main-color-3);
+          text-align: center;
+          font-weight: 500;
+          font-size: var(--font-size-small);
+        }
+      }
+    }
+  }
+}
