@@ -1,0 +1,76 @@
+@import 'partials/mixins';
+@import 'partials/media-queries';
+
+.offices {
+  position: relative;
+  background: linear-gradient(rgba(0, 0, 0, .6), rgba(0, 0, 0, .6)),
+              url('../img/offices/offices-bg.jpg') center/cover no-repeat;
+
+  .wrapper {
+    display: flex;
+    flex-direction: column;
+    padding-top: 260px;
+    padding-bottom: 130px;
+
+    .section-title {
+      margin-bottom: 40px;
+    }
+
+    .description {
+      max-width: 360px;
+      margin: 0 auto 65px auto;
+      color: var(--main-color-1);
+      text-align: center;
+      font-size: var(--font-size-small);
+    }
+
+    .world-map-wrapper {
+      position: relative;
+      margin: 0 auto;
+
+      .world-map {
+        max-width: 100%;
+        max-height: 400px;
+      }
+
+      .marker {
+        position: absolute;
+        padding-left: 28px;
+        color: var(--main-color-1);
+        text-transform: uppercase;
+        font-size: var(--font-size-medium);
+        font-weight: 700;
+        @include transition(color var(--hover-transition-time) ease-in-out);
+
+        &:hover {
+          color: var(--main-color-2);
+        }
+
+        &::before {
+          content: '';
+          width: 18px;
+          height: 30px;
+          position: absolute;
+          top: -8px;
+          left: 0;
+          background-image: url('../img/offices/marker-icon.png');
+        }
+      }
+
+      .marker-usa {
+        bottom: 60%;
+        left: 20%;
+      }
+
+      .marker-france {
+        bottom: 65%;
+        left: 47%;
+      }
+
+      .marker-egypt {
+        bottom: 52%;
+        left: 53%;
+      }
+    }
+  }
+}

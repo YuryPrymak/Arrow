@@ -8,3 +8,4 @@ import './scss/navigation.scss';
 import './scss/services.scss';
 import './scss/portfolio.scss';
 import './scss/team.scss';
+import './scss/offices.scss';
