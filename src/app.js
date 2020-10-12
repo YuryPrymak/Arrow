@@ -11,3 +11,4 @@ import './scss/portfolio.scss';
 import './scss/team.scss';
 import './scss/offices.scss';
 import './scss/clients.scss';
+import './scss/footer.scss';
