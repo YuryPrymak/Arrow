@@ -10,6 +10,19 @@
     padding-top: 260px;
     padding-bottom: 80px;
 
+    @include media-xl {
+      padding-top: 210px;
+    }
+
+    @include media-md {
+      padding-top: 160px;
+    }
+
+    @include media-sm {
+      padding-top: 110px;
+      padding-bottom: 40px;
+    }
+
     .section-title {
       margin-bottom: 40px;
     }

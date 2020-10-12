@@ -2,6 +2,7 @@ import './js/navigation';
 import './js/smooth-scroll';
 import './js/sticky-nav';
 import './js/testimonials-slider';
+import './js/detect-key-press';
 
 import './scss/main.scss';
 import './scss/header.scss';

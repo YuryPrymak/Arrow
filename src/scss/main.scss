@@ -1,4 +1,5 @@
 @import url('https://fonts.googleapis.com/css2?family=Raleway:wght@100;200;300;400;500;600;700;800;900&display=swap');
+@import 'partials/media-queries';
 
 * {
   margin: 0;
@@ -6,9 +7,13 @@
   box-sizing: border-box;
 }
 
-*:focus {
+:focus {
   outline: none;
   box-shadow: 0 0 2px 1px var(--main-color-2);
+}
+
+.focus-off :focus {
+  box-shadow: none;
 }
 
 :root {
@@ -26,6 +31,14 @@
   --font-size-card-title: 20px;
 
   --hover-transition-time: .1s;
+}
+
+@include media-sm {
+  :root {
+    --font-size-large: 20px;
+    --font-size-medium: 18px;
+    --font-size-small: 16px;
+  }
 }
 
 body {
@@ -113,6 +126,18 @@ a {
     bottom: -1px;
     clip-path: polygon(0% 0%, 50% 100%, 100% 0%, 100% 100%, 0% 100%);
     background-color: var(--main-bg-color);
+
+    @include media-xl {
+      height: 150px;
+    }
+
+    @include media-md {
+      height: 100px;
+    }
+
+    @include media-sm {
+      height: 50px;
+    }
   }
 }
 
@@ -126,5 +151,17 @@ a {
     top: -1px;
     clip-path: polygon(0% 0%, 100% 0%, 50% 100%);
     background-color: var(--main-bg-color);
+
+    @include media-xl {
+      height: 150px;
+    }
+
+    @include media-md {
+      height: 100px;
+    }
+
+    @include media-sm {
+      height: 50px;
+    }
   }
 }

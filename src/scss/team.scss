@@ -6,6 +6,10 @@
     padding-top: 60px;
     padding-bottom: 10px;
 
+    @include media-sm {
+      padding-bottom: 0;
+    }
+
     .section-title {
       margin-bottom: 40px;
     }
@@ -18,7 +22,7 @@
       font-size: var(--font-size-small);
     }
 
-    .team {
+    .our-team {
       display: flex;
       flex-wrap: wrap;
       justify-content: center;
@@ -49,7 +53,7 @@
 
           &:hover {
             .overlay {
-              opacity: 1;
+              display: block;
             }
           }
 
@@ -73,13 +77,17 @@
           .overlay {
             width: 100%;
             height: 100%;
+            display: none;
             position: absolute;
             top: 0;
             left: 0;
-            opacity: 0;
             background-color: rgba(41, 128, 185, 0.7);
             z-index: 3;
-            @include transition(opacity var(--hover-transition-time) ease-in-out);
+
+            @media (hover: none) {
+              display: block;
+              background-color: transparent;
+            }
 
             .social {
               height: 100%;
@@ -87,6 +95,10 @@
               justify-content: center;
               align-items: center;
               padding: 15px 10px;
+
+              @media (hover: none) {
+                align-items: flex-end;
+              }
 
               .link {
                 width: 56px;
@@ -152,6 +164,21 @@
           text-align: center;
           font-size: var(--font-size-medium);
           font-weight: 500;
+        }
+      }
+    }
+
+    .our-team-hover {
+      .person {
+        .img-wrapper {
+          .overlay {
+            display: block;
+            background-color: transparent;
+
+            .social {
+              align-items: flex-end;
+            }
+          }
         }
       }
     }
