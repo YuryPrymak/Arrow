@@ -4,6 +4,7 @@
 .header {
   width: 100%;
   height: 100vh;
+  min-height: 550px;
   position: relative;
   background: linear-gradient(rgba(41, 128, 185, .5), rgba(41, 128, 185, .5)),
               url('../img/header/header-bg.jpg') center/cover no-repeat;
