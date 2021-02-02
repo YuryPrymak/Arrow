@@ -1,3 +1,5 @@
+import 'scroll-behavior-polyfill';
+
 import './js/navigation';
 import './js/smooth-scroll';
 import './js/sticky-nav';
